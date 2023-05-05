@@ -61,7 +61,7 @@ finemap_prob_Threshold=$(echo '0.1')
 
 
  
-Rscript_data_wrangling_normalization_metrics=$(echo "$Rscript_folder""251_MPRA_1_DW_PLUS_NOR.R")
+Rscript_data_wrangling_normalization_metrics=$(echo "$Rscript_folder""251_MPRA_1_DW_PLUS_NOR_v2.R")
 
 
 
