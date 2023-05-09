@@ -18,14 +18,21 @@ queue=$6
 ####
 
 dependencies_folder=$(echo "$path_to_scripts_folder""Dependencies""/")
-Rscript_folder=$(echo "$path_to_scripts_folder""Rscript""/")
+Rscript_folder=$(echo "$path_to_scripts_folder""Rscripts""/")
 Log_files_path=$(echo "$path_to_scripts_folder""Log_files_Sample_Processing""/")
+output_dir=$path_to_leave_output_files
+
+######################################### # CAREFUL!!!!
 
 rm -rf $Log_files_path
 
 mkdir -p $Log_files_path
 
+rm -rf $output_dir
 
+mkdir -p $output_dir
+
+######################################### # CAREFUL!!!!
 
 output=$(echo "$path_to_scripts_folder""MPRA_analysis_printed_script.sh")
 touch $output
@@ -41,22 +48,19 @@ fdr_Threshold=$(echo '0.05')
 enhancer_empirical_log_pval_Threshold=$(echo '1.3')
 enhancer_pval_Threshold=$(echo '1.3')
 ASE_log_pval_Threshold=$(echo '1.3')
-output_dir=$path_to_leave_output_files
 
-K562_replicates_QC_PASS=$(echo 'K562_6,K562_7,K562_14,K562_16,K562_17,K562_18,K562_19')
+
+K562_replicates_QC_PASS=$(echo 'K562_ALL6,K562_ALL7,K562_R14,K562_R16,K562_R17,K562_R18,K562_R19')
 CHRF_replicates_QC_PASS=$(echo 'CHRF_R1,CHRF_R2,CHRF_R11,CHRF_R12,CHRF_R13,CHRF_R14,CHRF_R15')
 HL60_replicates_QC_PASS=$(echo 'HL60_R5,HL60_R7,HL60_R9,HL60_R10,HL60_R12,HL60_R14,HL60_R15')
 THP1_replicates_QC_PASS=$(echo 'THP1_R0plus,THP1_R1,THP1_R6,THP1_R7,THP1_R8,THP1_R9,THP1_R10')
 
 FC_Threshold=$(echo "0.05")
 ASE_Threshold=$(echo "0.95,1.05")
-
 finemap_prob_Threshold=$(echo '0.1')
+enhancer_logval_Threshold=$(echo "1.3")
 
-# # CAREFUL!!!!
 
-#rm -rf $output_dir
-#mkdir -p $output_dir
 
 
 
@@ -95,8 +99,6 @@ touch $outfile_QC_graphs
 echo -n "" > $outfile_QC_graphs
 name_QC_graphs=$(echo "$type""_job")
 
-
-output_dir=$MASTER_ROUTE
 
 
 #echo "bsub -G team151 -o $outfile_QC_graphs -M $mem  -J $name_QC_graphs -R\"select[mem>=$mem] rusage[mem=$mem] span[hosts=1]\" -n$pc -q $queue -- \\" >> $output
@@ -243,11 +245,8 @@ enhancer_result_THP1=$(echo "$output_dir""MPRAnalyze_enhancer_results_THP1.txt")
 ASE_result_THP1=$(echo "$output_dir""MPRAnalyze_ASE_results_ASE_THP1.txt")
 
 
-enhancer_logval_Threshold=$(echo "1.3")
-#FC_Threshold=$(echo "0.1")
-#ASE_Threshold=$(echo "0.9,1.1")
-#FC_Threshold=$(echo "0.01")
-#ASE_Threshold=$(echo "0.99,1.01")
+
+
 
 
 
@@ -277,7 +276,7 @@ echo "--type $type --out $output_dir --out2 $output_dir\"" >> $output
 echo "#####################################################################-----> VJ_directionality  <-----###############################################################################"  >> $output
  
 
-Rscript_VJ_directionality=$(echo "$Rscript_folder""251_MPRA_12_VJ_check_directionality_v2.R")
+Rscript_VJ_directionality=$(echo "$Rscript_folder""251_MPRA_12_VJ_check_directionality_v3.R")
 
 type=$(echo "VJ_directionality")
 outfile_VJ_directionality=$(echo "$Log_files_path""outfile""_""$type"".out")
@@ -301,6 +300,10 @@ echo "\"$Rscript $Rscript_VJ_directionality \\" >> $output
 echo "--Sankaran_MPRA $Sankaran_MPRA \\" >> $output
 echo "--MPRA_Real_tile_QC2_PASS $MPRA_Real_tile_QC2_PASS \\" >> $output
 echo "--type $type --out $output_dir --out2 $output_dir\"" >> $output
+
+
+
+
 
 echo "#####################################################################-----> POST_QC_PLOTS  <-----###############################################################################"  >> $output
  
@@ -522,8 +525,6 @@ echo "--MPRA_Real_Tile_QC2_NO_FILTERED $MPRA_Real_Tile_QC2_NO_FILTERED \\" >> $o
 echo "--CUMMULATIVE_CLASSES $CUMMULATIVE_CLASSES \\" >> $output
 echo "--ALL_dB $ALL_dB \\" >> $output
 echo "--type $type --out $output_dir --out2 $output_dir\"" >> $output
-
-
 
 
 echo "#####################################################################-----> UPSETR <-----###############################################################################"  >> $output
