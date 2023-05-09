@@ -2163,10 +2163,10 @@ regularize_matrixes = function(option_list)
         }
         
         
-        if(dim(attractor_gDNA.matrix)[2] != 1050)
+        if(dim(attractor_gDNA.matrix)[2] != 1110)
         {
           
-          cat("WARNING IN  REAL_TILE_Plus_carried_variants not 1050 columns in regularized matrix gDNA>")
+          cat("WARNING IN  REAL_TILE_Plus_carried_variants not 1110 columns in regularized matrix gDNA>")
           cat("\n")
           cat(sprintf(as.character(dim(attractor_gDNA.matrix)[2])))
           cat("\n")
@@ -2248,10 +2248,10 @@ regularize_matrixes = function(option_list)
         }
         
         
-        if(dim(attractor_cDNA.matrix)[2] != 1050)
+        if(dim(attractor_cDNA.matrix)[2] != 1110)
         {
           
-          cat("WARNING IN  REAL_TILE_Plus_carried_variants not 1050 columns in regularized matrix cDNA>")
+          cat("WARNING IN  REAL_TILE_Plus_carried_variants not 1110 columns in regularized matrix cDNA>")
           cat("\n")
           setwd(out)
           
