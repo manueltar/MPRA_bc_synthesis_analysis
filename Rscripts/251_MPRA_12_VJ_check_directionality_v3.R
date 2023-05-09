@@ -305,7 +305,9 @@ data_wrangling = function(option_list)
   
   DEF<-DEF[!is.na(DEF$DEF_CLASS),]
 
-  DEF<-DEF[which(DEF$DEF_CLASS != "enhancer"),]
+  # Select only variants with E_Plus_ASE or ASE
+  
+  DEF<-DEF[which(DEF$DEF_CLASS != 'enhancer'),]
 
   DEF<-droplevels(DEF)
 
@@ -378,112 +380,120 @@ data_wrangling = function(option_list)
     cat(str(DEF_2))
     cat("\n")
     
-    linearModel_VJ <- summary(lm(DEF_2$Allelic_skew ~ DEF_2$value,
-                                               data=DEF_2))
+    if(dim(DEF_2)[1] >1)
+    {
+      linearModel_VJ <- summary(lm(DEF_2$Allelic_skew ~ DEF_2$value,
+                                   data=DEF_2))
+      
+      cat("linearModel_VJ\n")
+      cat(str(linearModel_VJ))
+      cat("\n")
+      
+      r.squared_linearModel_VJ<-round(linearModel_VJ$r.squared,2)
+      
+      linearModel_VJ_coeffcient_df.m<-melt(linearModel_VJ$coefficients)
+      
+      colnames(linearModel_VJ_coeffcient_df.m)[which(colnames(linearModel_VJ_coeffcient_df.m)=="Var1")]<-"Terms"
+      colnames(linearModel_VJ_coeffcient_df.m)[which(colnames(linearModel_VJ_coeffcient_df.m)=="Var2")]<-"Parameters"
+      
+      # cat("linearModel_VJ_coeffcient_df.m\n")
+      # cat(str(linearModel_VJ_coeffcient_df.m))
+      # cat("\n")
+      
+      slope<-round(linearModel_VJ_coeffcient_df.m$value[which(linearModel_VJ_coeffcient_df.m$Parameters == "Estimate" &
+                                                                linearModel_VJ_coeffcient_df.m$Terms == "DEF_2$value")],2)
+      
+      cat("slope\n")
+      cat(str(slope))
+      cat("\n")
+      
+      
+      slope_pval<-round(-1*log10(linearModel_VJ_coeffcient_df.m$value[which(linearModel_VJ_coeffcient_df.m$Parameters == "Pr(>|t|)" &
+                                                                              linearModel_VJ_coeffcient_df.m$Terms == "DEF_2$value")]),2)
+      
+      cat("slope_pval\n")
+      cat(str(slope_pval))
+      cat("\n")
+      
+      intercept<-round(linearModel_VJ_coeffcient_df.m$value[which(linearModel_VJ_coeffcient_df.m$Parameters == "Estimate" &
+                                                                    linearModel_VJ_coeffcient_df.m$Terms == "(Intercept)")],2)
+      
+      cat("intercept\n")
+      cat(str(intercept))
+      cat("\n")
+      
+      
+      intercept_pval<-linearModel_VJ_coeffcient_df.m$value[which(linearModel_VJ_coeffcient_df.m$Parameters == "Pr(>|t|)" &
+                                                                   linearModel_VJ_coeffcient_df.m$Terms == "(Intercept)")]
+      
+      cat("intercept_pval\n")
+      cat(str(intercept_pval))
+      cat("\n")
+      
+      
+      
+      
+      ALT_ALT<-DEF_2[which(DEF_2$value > 1 &
+                             DEF_2$Allelic_skew < 0),]
+      
+      cat("ALT_ALT\n")
+      cat(str(ALT_ALT))
+      cat("\n")
+      
+      ALT_REF<-DEF_2[which(DEF_2$value > 1 &
+                             DEF_2$Allelic_skew > 0),]
+      
+      cat("ALT_REF\n")
+      cat(str(ALT_REF))
+      cat("\n")
+      
+      REF_REF<-DEF_2[which(DEF_2$value < 1 &
+                             DEF_2$Allelic_skew > 0),]
+      
+      cat("REF_REF\n")
+      cat(str(REF_REF))
+      cat("\n")
+      
+      REF_ALT<-DEF_2[which(DEF_2$value < 1 &
+                             DEF_2$Allelic_skew < 0),]
+      
+      cat("REF_ALT\n")
+      cat(str(REF_ALT))
+      cat("\n")
+      
+      TOTAL_CLASSIFIED<-sum(dim(ALT_ALT)[1],dim(ALT_REF)[1],dim(REF_REF)[1],dim(REF_ALT)[1])
+      
+      cat(sprintf(as.character(TOTAL_CLASSIFIED)))
+      cat("\n")
+      
+      CLASSIFIED_RIGHT<-sum(dim(ALT_ALT)[1],dim(REF_REF)[1])
+      
+      cat(sprintf(as.character(CLASSIFIED_RIGHT)))
+      cat("\n")
+      
+      CLASSIFIED_WRONG<-sum(dim(ALT_REF)[1],dim(REF_ALT)[1])
+      
+      cat(sprintf(as.character(CLASSIFIED_WRONG)))
+      cat("\n")
+      
+      
+      A.df<-as.data.frame(cbind(Cell_Type_array_sel,slope,intercept,dim(DEF_2)[1],r.squared_linearModel_VJ,slope_pval,CLASSIFIED_RIGHT,CLASSIFIED_WRONG,TOTAL_CLASSIFIED))
+      
+      # cat("A.df\n")
+      # cat(str(A.df))
+      # cat("\n")
+      
+      colnames(A.df)<-c("Cell_Type","LM_slope","LM_intercept","n","r.squared","logpval","CLASSIFIED_RIGHT","CLASSIFIED_WRONG","TOTAL_CLASSIFIED")
+      
+      cat("A.df\n")
+      cat(str(A.df))
+      cat("\n")
+      
+      list_LM[[iteration_Cell_Type_array]]<-A.df
+      
+    }#dim(DEF_2)[1] >1
     
-    cat("linearModel_VJ\n")
-    cat(str(linearModel_VJ))
-    cat("\n")
-
-    r.squared_linearModel_VJ<-round(linearModel_VJ$r.squared,2)
     
-    linearModel_VJ_coeffcient_df.m<-melt(linearModel_VJ$coefficients)
-    
-    colnames(linearModel_VJ_coeffcient_df.m)[which(colnames(linearModel_VJ_coeffcient_df.m)=="Var1")]<-"Terms"
-    colnames(linearModel_VJ_coeffcient_df.m)[which(colnames(linearModel_VJ_coeffcient_df.m)=="Var2")]<-"Parameters"
-    
-    # cat("linearModel_VJ_coeffcient_df.m\n")
-    # cat(str(linearModel_VJ_coeffcient_df.m))
-    # cat("\n")
-    
-    slope<-round(linearModel_VJ_coeffcient_df.m$value[which(linearModel_VJ_coeffcient_df.m$Parameters == "Estimate" &
-                                                                            linearModel_VJ_coeffcient_df.m$Terms == "DEF_2$value")],2)
-    
-    cat("slope\n")
-    cat(str(slope))
-    cat("\n")
-    
-    
-    slope_pval<-round(-1*log10(linearModel_VJ_coeffcient_df.m$value[which(linearModel_VJ_coeffcient_df.m$Parameters == "Pr(>|t|)" &
-                                                                                          linearModel_VJ_coeffcient_df.m$Terms == "DEF_2$value")]),2)
-    
-    cat("slope_pval\n")
-    cat(str(slope_pval))
-    cat("\n")
-    
-    intercept<-round(linearModel_VJ_coeffcient_df.m$value[which(linearModel_VJ_coeffcient_df.m$Parameters == "Estimate" &
-                                                                                linearModel_VJ_coeffcient_df.m$Terms == "(Intercept)")],2)
-    
-    cat("intercept\n")
-    cat(str(intercept))
-    cat("\n")
-    
-    
-    intercept_pval<-linearModel_VJ_coeffcient_df.m$value[which(linearModel_VJ_coeffcient_df.m$Parameters == "Pr(>|t|)" &
-                                                                               linearModel_VJ_coeffcient_df.m$Terms == "(Intercept)")]
-    
-    cat("intercept_pval\n")
-    cat(str(intercept_pval))
-    cat("\n")
-    
-    
-    
-    
-    ALT_ALT<-DEF_2[which(DEF_2$value < 1 &
-                           DEF_2$Allelic_skew < 0),]
-    
-    cat("ALT_ALT\n")
-    cat(str(ALT_ALT))
-    cat("\n")
-    
-    ALT_REF<-DEF_2[which(DEF_2$value < 1 &
-                           DEF_2$Allelic_skew > 0),]
-    
-    cat("ALT_REF\n")
-    cat(str(ALT_REF))
-    cat("\n")
-    
-    REF_REF<-DEF_2[which(DEF_2$value > 1 &
-                           DEF_2$Allelic_skew > 0),]
-    
-    cat("REF_REF\n")
-    cat(str(REF_REF))
-    cat("\n")
-    
-    REF_ALT<-DEF_2[which(DEF_2$value > 1 &
-                           DEF_2$Allelic_skew < 0),]
-    
-    cat("REF_ALT\n")
-    cat(str(REF_ALT))
-    cat("\n")
-    
-    TOTAL_CLASSIFIED<-sum(dim(ALT_ALT)[1],dim(ALT_REF)[1],dim(REF_REF)[1],dim(REF_ALT)[1])
-    
-    cat(sprintf(as.character(TOTAL_CLASSIFIED)))
-    cat("\n")
-    
-    CLASSIFIED_RIGHT<-sum(dim(ALT_ALT)[1],dim(REF_REF)[1])
-    
-    cat(sprintf(as.character(CLASSIFIED_RIGHT)))
-    cat("\n")
-    
-    CLASSIFIED_WRONG<-sum(dim(ALT_REF)[1],dim(REF_ALT)[1])
-    
-    cat(sprintf(as.character(CLASSIFIED_WRONG)))
-    cat("\n")
-    
-    
-    A.df<-as.data.frame(cbind(Cell_Type_array_sel,slope,intercept,dim(DEF_2)[1],r.squared_linearModel_VJ,slope_pval,CLASSIFIED_RIGHT,CLASSIFIED_WRONG,TOTAL_CLASSIFIED))
-    
-    # cat("A.df\n")
-    # cat(str(A.df))
-    # cat("\n")
-    
-    colnames(A.df)<-c("Cell_Type","LM_slope","LM_intercept","n","r.squared","logpval","CLASSIFIED_RIGHT","CLASSIFIED_WRONG","TOTAL_CLASSIFIED")
-    
-    cat("A.df\n")
-    cat(str(A.df))
-    cat("\n")
     
     
     
@@ -541,7 +551,7 @@ data_wrangling = function(option_list)
       ggeasy::easy_center_title()
     
    
-    list_LM[[iteration_Cell_Type_array]]<-A.df
+   
    
     
     setwd(path5)
@@ -568,17 +578,17 @@ data_wrangling = function(option_list)
   if(length(list_LM) >0)
   {
     LM_DEF = unique(as.data.frame(data.table::rbindlist(list_LM, fill = T)))
-    
-    
+
+
     cat("LM_DEF\n")
     cat(str(LM_DEF))
     cat("\n")
-    
+
     setwd(path5)
-    
+
     write.table(LM_DEF,file="LM_object.tsv",sep="\t",quote=F,row.names = F)
-    
-    
+
+
   }
   
   

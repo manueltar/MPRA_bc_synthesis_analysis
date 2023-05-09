@@ -95,6 +95,46 @@ file_reader = function(option_list)
   # file_list_sel$file_extraction<-gsub("_gfpp","",file_list_sel$file_extraction)
   # file_list_sel$file_extraction<-gsub("ALL","K562",file_list_sel$file_extraction)
   # file_list_sel$file_extraction<-gsub("^R","K562_",file_list_sel$file_extraction)
+  
+  
+  # Error from the wetlab part the cDNA of replicates K562_R106 and K562_R116 was isolated together in replicate ALL_6
+  # Error from the wetlab part the cDNA of replicates K562_R107 and K562_R117 was isolated together in replicate ALL_7
+  
+  # R10_6_gDNA_S1_L001_R1_001.fastq.gz      R10_6_gDNA_S1_L002_R1_001.fastq.gz      K562_R106_gDNA_R1.fastq.gz
+  # R10_6_gDNA_S1_L001_R2_001.fastq.gz      R10_6_gDNA_S1_L002_R2_001.fastq.gz      K562_R106_gDNA_R2.fastq.gz
+  # R10_6_gDNA_S1_L001_R3_001.fastq.gz      R10_6_gDNA_S1_L002_R3_001.fastq.gz      K562_R106_gDNA_R3.fastq.gz
+  # R10_6_gDNA_S1_L001_I1_001.fastq.gz      R10_6_gDNA_S1_L002_I1_001.fastq.gz      K562_R106_gDNA_I1.fastq.gz
+  # ALL_6_cDNA_S5_L001_R1_001.fastq.gz      ALL_6_cDNA_S5_L002_R1_001.fastq.gz      K562_ALL6_cDNA_R1.fastq.gz
+  # ALL_6_cDNA_S5_L001_R2_001.fastq.gz      ALL_6_cDNA_S5_L002_R2_001.fastq.gz      K562_ALL6_cDNA_R2.fastq.gz
+  # ALL_6_cDNA_S5_L001_R3_001.fastq.gz      ALL_6_cDNA_S5_L002_R3_001.fastq.gz      K562_ALL6_cDNA_R3.fastq.gz
+  # ALL_6_cDNA_S5_L001_I1_001.fastq.gz      ALL_6_cDNA_S5_L002_I1_001.fastq.gz      K562_ALL6_cDNA_I1.fastq.gz
+  # R10_7_gDNA_S2_L001_R1_001.fastq.gz      R10_7_gDNA_S2_L002_R1_001.fastq.gz      K562_R107_gDNA_R1.fastq.gz
+  # R10_7_gDNA_S2_L001_R2_001.fastq.gz      R10_7_gDNA_S2_L002_R2_001.fastq.gz      K562_R107_gDNA_R2.fastq.gz
+  # R10_7_gDNA_S2_L001_R3_001.fastq.gz      R10_7_gDNA_S2_L002_R3_001.fastq.gz      K562_R107_gDNA_R3.fastq.gz
+  # R10_7_gDNA_S2_L001_I1_001.fastq.gz      R10_7_gDNA_S2_L002_I1_001.fastq.gz      K562_R107_gDNA_I1.fastq.gz
+  # ALL_7_cDNA_S6_L001_R1_001.fastq.gz      ALL_7_cDNA_S6_L002_R1_001.fastq.gz      K562_ALL7_cDNA_R1.fastq.gz
+  # ALL_7_cDNA_S6_L001_R2_001.fastq.gz      ALL_7_cDNA_S6_L002_R2_001.fastq.gz      K562_ALL7_cDNA_R2.fastq.gz
+  # ALL_7_cDNA_S6_L001_R3_001.fastq.gz      ALL_7_cDNA_S6_L002_R3_001.fastq.gz      K562_ALL7_cDNA_R3.fastq.gz
+  # ALL_7_cDNA_S6_L001_I1_001.fastq.gz      ALL_7_cDNA_S6_L002_I1_001.fastq.gz      K562_ALL7_cDNA_I1.fastq.gz
+  # R11_6_gDNA_S3_L001_R1_001.fastq.gz      R11_6_gDNA_S3_L002_R1_001.fastq.gz      K562_R116_gDNA_R1.fastq.gz
+  # R11_6_gDNA_S3_L001_R2_001.fastq.gz      R11_6_gDNA_S3_L002_R2_001.fastq.gz      K562_R116_gDNA_R2.fastq.gz
+  # R11_6_gDNA_S3_L001_R3_001.fastq.gz      R11_6_gDNA_S3_L002_R3_001.fastq.gz      K562_R116_gDNA_R3.fastq.gz
+  # R11_6_gDNA_S3_L001_I1_001.fastq.gz      R11_6_gDNA_S3_L002_I1_001.fastq.gz      K562_R116_gDNA_I1.fastq.gz
+  # R11_7_gDNA_S4_L001_R1_001.fastq.gz      R11_7_gDNA_S4_L002_R1_001.fastq.gz      K562_R117_gDNA_R1.fastq.gz
+  # R11_7_gDNA_S4_L001_R2_001.fastq.gz      R11_7_gDNA_S4_L002_R2_001.fastq.gz      K562_R117_gDNA_R2.fastq.gz
+  # R11_7_gDNA_S4_L001_R3_001.fastq.gz      R11_7_gDNA_S4_L002_R3_001.fastq.gz      K562_R117_gDNA_R3.fastq.gz
+  # R11_7_gDNA_S4_L001_I1_001.fastq.gz      R11_7_gDNA_S4_L002_I1_001.fastq.gz      K562_R117_gDNA_I1.fastq.gz
+  
+  
+  
+  file_list_sel$file_extraction<-gsub("R106","ALL6",file_list_sel$file_extraction)
+  file_list_sel$file_extraction<-gsub("R116","ALL6",file_list_sel$file_extraction)
+  
+  file_list_sel$file_extraction<-gsub("R107","ALL7",file_list_sel$file_extraction)
+  file_list_sel$file_extraction<-gsub("R117","ALL7",file_list_sel$file_extraction)
+  
+  
+  
   file_list_sel$file_extraction<-gsub("-GFP","R0minus",file_list_sel$file_extraction)
   file_list_sel$file_extraction<-gsub("pGFP","R0plus",file_list_sel$file_extraction)
   file_list_sel$file_extraction<-gsub("THP-1","THP1",file_list_sel$file_extraction)
@@ -145,22 +185,25 @@ file_reader = function(option_list)
   cat("file_list_sel_0\n")
   cat(str(file_list_sel))
   cat("\n")
-  cat(sprintf(as.character(names(summary(file_list_sel$Cell_Type)))))
+  cat(sprintf(as.character(names(summary(as.factor(file_list_sel$Cell_Type))))))
   cat("\n")
-  cat(sprintf(as.character(summary(file_list_sel$Cell_Type))))
+  cat(sprintf(as.character(summary(as.factor(file_list_sel$Cell_Type)))))
   cat("\n")
-  cat(sprintf(as.character(names(summary(file_list_sel$type)))))
+  cat(sprintf(as.character(names(summary(as.factor(file_list_sel$type))))))
   cat("\n")
-  cat(sprintf(as.character(summary(file_list_sel$type))))
+  cat(sprintf(as.character(summary(as.factor(file_list_sel$type)))))
   cat("\n")
-  cat(sprintf(as.character(names(summary(file_list_sel$Replicate)))))
+  cat(sprintf(as.character(names(summary(as.factor(file_list_sel$Replicate))))))
   cat("\n")
-  cat(sprintf(as.character(summary(file_list_sel$Replicate))))
+  cat(sprintf(as.character(summary(as.factor(file_list_sel$Replicate)))))
   cat("\n")
   cat(sprintf(as.character(names(summary(as.factor(file_list_sel$sample))))))
   cat("\n")
   cat(sprintf(as.character(summary(as.factor(file_list_sel$sample)))))
   cat("\n")
+  
+  
+ 
   
   
   file_list_sel$type<-factor(file_list_sel$type,
@@ -170,10 +213,11 @@ file_reader = function(option_list)
                              c("K562","CHRF","HL60","THP1"),
                              ordered=T)
   file_list_sel$Replicate<-factor(file_list_sel$Replicate,
-                             c("6","7","14","15","16","17","18","19","R0minus","R0plus",
-                               "R1","R2","R3","R4","R5","R6","R7","R8","R9","R10","R11","R12","R13","R14","R15"),
+                                  c("ALL6","ALL7","R0minus","R0plus","R1","R10","R11","R116","R117","R11gfpp","R12","R12gfpp","R13","R14","R15","R16","R17","R18","R19","R2","R5","R6","R7","R7gfpp","R8","R8gfpp","R9"),
                              ordered=T)
   
+  
+
   file_list_sel[order(file_list_sel$Cell_Type,file_list_sel$Replicate,file_list_sel$type),]
   
   
@@ -289,13 +333,21 @@ file_reader = function(option_list)
           
           list_K562_Rep6<-list()
           
-          if(Cell_Type_sel == "K562" & Replicates_sel == 6 & types_sel == "gDNA") # exception  "K562" & Replicates_sel == 6 & types_sel == "gDNA
+          
+          
+          
+          error_replicates_1<-c('ALL6')
+          error_replicates_2<-c('ALL7')
+          
+          
+          if(Cell_Type_sel == "K562" & types_sel == "gDNA" &
+             Replicates_sel %in% error_replicates_1) # exception  "K562" & Replicates_sel == c('R106','R116') & types_sel == "gDNA
           {
             FILES_array<-unique(file_list_CT_Replicates_types_sel$file)
             
-            # cat("FILES_array\n")
-            # cat(str(FILES_array))
-            # cat("\n")
+            cat("FILES_array\n")
+            cat(str(FILES_array))
+            cat("\n")
             
             for(iteration_FILES_array in 1:length(FILES_array))
             {
@@ -303,9 +355,9 @@ file_reader = function(option_list)
               
               sel_file<-file_list_CT_Replicates_types_sel$file[iteration_FILES_array]
               
-              # cat("sel_file\n")
-              # cat(str(sel_file))
-              # cat("\n")
+              cat("sel_file\n")
+              cat(str(sel_file))
+              cat("\n")
               
               SIZE_gate<-file.info(sel_file)$size
               
@@ -364,37 +416,37 @@ file_reader = function(option_list)
             
             m1<-list_K562_Rep6[[1]]
             
-            # cat("m1\n")
-            # cat(str(m1))
-            # cat("\n")
-            # 
-            # cat(str(row.names(m1)))
-            # cat("\n")
+            cat("m1\n")
+            cat(str(m1))
+            cat("\n")
+
+            cat(str(row.names(m1)))
+            cat("\n")
             
             m2<-list_K562_Rep6[[2]]
             
-            # cat("m2\n")
-            # cat(str(m2))
-            # cat("\n")
+            cat("m2\n")
+            cat(str(m2))
+            cat("\n")
             
             cols <- unique(c(colnames(m1), colnames(m2)))
             
-            # cat("cols\n")
-            # cat(str(cols))
-            # cat("\n")
+            cat("cols\n")
+            cat(str(cols))
+            cat("\n")
             
             rows <- unique(c(rownames(m1), rownames(m2)))
             
-            # cat("rows\n")
-            # cat(str(rows))
-            # cat("\n")
+            cat("rows\n")
+            cat(str(rows))
+            cat("\n")
             
             dummy_m1 <- matrix(0, nrow = length(rows), ncol = length(cols), 
                                dimnames = list(rows,cols))
             
-            # cat("dummy_m1\n")
-            # cat(str(dummy_m1))
-            # cat("\n")
+            cat("dummy_m1\n")
+            cat(str(dummy_m1))
+            cat("\n")
             
             dummy_m2 <- dummy_m1
             
@@ -402,17 +454,24 @@ file_reader = function(option_list)
             
             dummy_m1[rownames(m1), colnames(m1)] <- m1
             
-            # cat("dummy_m1\n")
-            # cat(str(dummy_m1))
-            # cat("\n")
+            cat("dummy_m1\n")
+            cat(str(dummy_m1))
+            cat("\n")
             
             dummy_m2[rownames(m2), colnames(m2)] <- m2
             
+            cat("dummy_m2\n")
+            cat(str(dummy_m2))
+            cat("\n")
+            
             combined<-dummy_m1 + dummy_m2
            
-           cat("combined\n")
+           cat("combined_106_116\n")
            cat(str(combined))
            cat("\n")
+           
+           
+          
            
            df<-as.data.frame(combined, stringsAsFactors = F)
            colnames(df)<-c("counts")
@@ -425,7 +484,10 @@ file_reader = function(option_list)
            cat("df\n")
            cat(str(df))
            cat("\n")
-          
+           
+           # ######################################
+           # quit(status = 1)
+           # 
            
            list_type[[iteration_type]]<-df
            
@@ -440,8 +502,10 @@ file_reader = function(option_list)
             list_K562_Rep7<-list()
             
             
-            if(Cell_Type_sel == "K562" & Replicates_sel == 7 & types_sel == "gDNA") # exception  "K562" & Replicates_sel == 7 & types_sel == "gDNA
+            if(Cell_Type_sel == "K562" & types_sel == "gDNA" &
+               Replicates_sel %in% error_replicates_2) # exception  "K562" & Replicates_sel == c('R107','R117') & types_sel == "gDNA
             {
+              
               FILES_array<-unique(file_list_CT_Replicates_types_sel$file)
               
               # cat("FILES_array\n")
@@ -515,30 +579,30 @@ file_reader = function(option_list)
               
               m1<-list_K562_Rep7[[1]]
               
-              # cat("m1\n")
-              # cat(str(m1))
-              # cat("\n")
-              # 
-              # cat(str(row.names(m1)))
-              # cat("\n")
+              cat("m1\n")
+              cat(str(m1))
+              cat("\n")
+
+              cat(str(row.names(m1)))
+              cat("\n")
               
               m2<-list_K562_Rep7[[2]]
               
-              # cat("m2\n")
-              # cat(str(m2))
-              # cat("\n")
+              cat("m2\n")
+              cat(str(m2))
+              cat("\n")
               
               cols <- unique(c(colnames(m1), colnames(m2)))
               
-              # cat("cols\n")
-              # cat(str(cols))
-              # cat("\n")
+              cat("cols\n")
+              cat(str(cols))
+              cat("\n")
               
               rows <- unique(c(rownames(m1), rownames(m2)))
               
-              # cat("rows\n")
-              # cat(str(rows))
-              # cat("\n")
+              cat("rows\n")
+              cat(str(rows))
+              cat("\n")
               
               dummy_m1 <- matrix(0, nrow = length(rows), ncol = length(cols), 
                                  dimnames = list(rows,cols))
@@ -553,17 +617,22 @@ file_reader = function(option_list)
               
               dummy_m1[rownames(m1), colnames(m1)] <- m1
               
-              # cat("dummy_m1\n")
-              # cat(str(dummy_m1))
-              # cat("\n")
-              
+              cat("dummy_m1\n")
+              cat(str(dummy_m1))
+              cat("\n")
+
               dummy_m2[rownames(m2), colnames(m2)] <- m2
+              
+              cat("dummy_m2\n")
+              cat(str(dummy_m2))
+              cat("\n")
+              
               
               combined<-dummy_m1 + dummy_m2
               
-              # cat("combined\n")
-              # cat(str(combined))
-              # cat("\n")
+              cat("combined_107_117\n")
+              cat(str(combined))
+              cat("\n")
               
               df<-as.data.frame(combined, stringsAsFactors = F)
               colnames(df)<-c("counts")
@@ -573,9 +642,9 @@ file_reader = function(option_list)
               df$Replicate<-Replicates_sel
               df$sample<-sample_sel
               
-              # cat("df\n")
-              # cat(str(df))
-              # cat("\n")
+              cat("df\n")
+              cat(str(df))
+              cat("\n")
               
               
               list_type[[iteration_type]]<-df
@@ -637,8 +706,8 @@ file_reader = function(option_list)
                   
                 }
               }# SIZE_gate
-            }# Cell_Type_sel == "K562" & Replicates_sel == 7 & Types_sel == "gDNA"
-          }# Cell_Type_sel == "K562" & Replicates_sel == 6 & Types_sel == "gDNA"
+            }# Cell_Type_sel == "K562" & Replicates_sel == ALL7 & Types_sel == "gDNA"
+          }# Cell_Type_sel == "K562" & Replicates_sel == ALL6 & Types_sel == "gDNA"
         }# iteration_Types_array
         
         if(length(list_type) >0)
@@ -671,15 +740,20 @@ file_reader = function(option_list)
   cat("TABLE_MPRA_RESULTS_0\n")
   cat(str(TABLE_MPRA_RESULTS))
   cat("\n")
-  cat(sprintf(as.character(names(summary(TABLE_MPRA_RESULTS$type)))))
+  cat(sprintf(as.character(names(summary(as.factor(TABLE_MPRA_RESULTS$type))))))
   cat("\n")
-  cat(sprintf(as.character(names(summary(TABLE_MPRA_RESULTS$Replicate)))))
+  cat(sprintf(as.character(summary(as.factor(TABLE_MPRA_RESULTS$type)))))
   cat("\n")
-  cat(sprintf(as.character(names(summary(TABLE_MPRA_RESULTS$Cell_Type)))))
+  cat(sprintf(as.character(names(summary(as.factor(TABLE_MPRA_RESULTS$Replicate))))))
   cat("\n")
-  cat(sprintf(as.character(summary(TABLE_MPRA_RESULTS$Cell_Type))))
+  cat(sprintf(as.character(summary(as.factor(TABLE_MPRA_RESULTS$Replicate)))))
   cat("\n")
-  # quit(status=1)
+  cat(sprintf(as.character(names(summary(as.factor(TABLE_MPRA_RESULTS$Cell_Type))))))
+  cat("\n")
+  cat(sprintf(as.character(summary(as.factor(TABLE_MPRA_RESULTS$Cell_Type)))))
+  cat("\n")
+  
+ 
   
  
   
@@ -690,9 +764,28 @@ file_reader = function(option_list)
                                   c("K562","CHRF","HL60","THP1"),
                                   ordered=T)
   TABLE_MPRA_RESULTS$Replicate<-factor(TABLE_MPRA_RESULTS$Replicate,
-                                       c("6","7","14","15","16","17","18","19","R0minus","R0plus",
-                                         "R1","R2","R5","R6","R7","R8","R9","R10","R11","R12","R13","R14","R15"),
+                                       c("ALL6","ALL7","R0minus","R0plus","R1","R10","R11","R11gfpp","R12","R12gfpp","R13","R14","R15","R16","R17","R18","R19","R2","R5","R6","R7","R7gfpp","R8","R8gfpp","R9"),
                                   ordered=T)
+  
+ 
+  cat("TABLE_MPRA_RESULTS_1\n")
+  cat(str(TABLE_MPRA_RESULTS))
+  cat("\n")
+  cat(sprintf(as.character(names(summary(as.factor(TABLE_MPRA_RESULTS$type))))))
+  cat("\n")
+  cat(sprintf(as.character(summary(as.factor(TABLE_MPRA_RESULTS$type)))))
+  cat("\n")
+  cat(sprintf(as.character(names(summary(as.factor(TABLE_MPRA_RESULTS$Replicate))))))
+  cat("\n")
+  cat(sprintf(as.character(summary(as.factor(TABLE_MPRA_RESULTS$Replicate)))))
+  cat("\n")
+  cat(sprintf(as.character(names(summary(as.factor(TABLE_MPRA_RESULTS$Cell_Type))))))
+  cat("\n")
+  cat(sprintf(as.character(summary(as.factor(TABLE_MPRA_RESULTS$Cell_Type)))))
+  cat("\n")
+  
+  # ################################################################################
+  # quit(status=1)
   
   TABLE_MPRA_RESULTS[order(TABLE_MPRA_RESULTS$Cell_Type,TABLE_MPRA_RESULTS$Replicate,TABLE_MPRA_RESULTS$type),]
   
@@ -718,8 +811,16 @@ file_reader = function(option_list)
   cat("TABLE_MPRA_RESULTS_3\n")
   cat(str(TABLE_MPRA_RESULTS))
   cat("\n")
+  # cat(sprintf(as.character(names(summary(as.factor(TABLE_MPRA_RESULTS$ALLELE))))))
+  # cat("\n")
+  # cat(sprintf(as.character(summary(as.factor(TABLE_MPRA_RESULTS$ALLELE)))))
+  # cat("\n")
   
+  check_NA<-TABLE_MPRA_RESULTS[is.na(TABLE_MPRA_RESULTS$ALLELE),]
 
+  cat("check_NA_3\n")
+  cat(str(check_NA))
+  cat("\n")
   
   #### SAVE FILES ----
   
@@ -727,9 +828,10 @@ file_reader = function(option_list)
   
   setwd(out)
   saveRDS(TABLE_MPRA_RESULTS,file=filename)
+  
+  # quit(status = 1)
 }
 
-###################################### REACTIVATE file_reader #####################################################
 
 regularize_matrixes = function(option_list)
 {
@@ -805,55 +907,69 @@ regularize_matrixes = function(option_list)
   cat(sprintf(as.character(summary(as.factor(LONG_MATRIX$Label)))))
   cat("\n")
   
+  CONDITION_DEBUG  <- 0
+  
  CTRL_Labels<-c("Kousik_variant","Negative_Control_Genomic_Regions","POSITIVE_CTRL","UNDETERMINED_CTRL")
  
   LONG_MATRIX_CTRL<-LONG_MATRIX[which(LONG_MATRIX$Label%in%CTRL_Labels),]
   
-  cat("LONG_MATRIX_CTRL\n")
-  cat(str(LONG_MATRIX_CTRL))
-  cat("\n")
-  cat(str(unique(LONG_MATRIX_CTRL$VAR)))
-  cat("\n")
-  cat(sprintf(as.character(names(summary(as.factor(LONG_MATRIX_CTRL$Label))))))
-  cat("\n")
-  cat(sprintf(as.character(summary(as.factor(LONG_MATRIX_CTRL$Label)))))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("LONG_MATRIX_CTRL\n")
+    cat(str(LONG_MATRIX_CTRL))
+    cat("\n")
+    cat(str(unique(LONG_MATRIX_CTRL$VAR)))
+    cat("\n")
+    cat(sprintf(as.character(names(summary(as.factor(LONG_MATRIX_CTRL$Label))))))
+    cat("\n")
+    cat(sprintf(as.character(summary(as.factor(LONG_MATRIX_CTRL$Label)))))
+    cat("\n")
+  }
  
   LONG_MATRIX_ASSAYED<-LONG_MATRIX[-which(LONG_MATRIX$Label%in%CTRL_Labels),]
   
-  cat("LONG_MATRIX_ASSAYED\n")
-  cat(str(LONG_MATRIX_ASSAYED))
-  cat("\n")
-  cat(str(unique(LONG_MATRIX_ASSAYED$VAR)))
-  cat("\n")
-  cat(sprintf(as.character(names(summary(as.factor(LONG_MATRIX_ASSAYED$Label))))))
-  cat("\n")
-  cat(sprintf(as.character(summary(as.factor(LONG_MATRIX_ASSAYED$Label)))))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("LONG_MATRIX_ASSAYED\n")
+    cat(str(LONG_MATRIX_ASSAYED))
+    cat("\n")
+    cat(str(unique(LONG_MATRIX_ASSAYED$VAR)))
+    cat("\n")
+    cat(sprintf(as.character(names(summary(as.factor(LONG_MATRIX_ASSAYED$Label))))))
+    cat("\n")
+    cat(sprintf(as.character(summary(as.factor(LONG_MATRIX_ASSAYED$Label)))))
+    cat("\n")
+  }
   
   LONG_MATRIX_ASSAYED_filtered<-LONG_MATRIX_ASSAYED[which(LONG_MATRIX_ASSAYED$VAR%in%Screened_variants$VAR),]
   
-  cat("LONG_MATRIX_ASSAYED_filtered\n")
-  cat(str(LONG_MATRIX_ASSAYED_filtered))
-  cat("\n")
-  cat(str(unique(LONG_MATRIX_ASSAYED_filtered$VAR)))
-  cat("\n")
-  cat(sprintf(as.character(names(summary(as.factor(LONG_MATRIX_ASSAYED_filtered$Label))))))
-  cat("\n")
-  cat(sprintf(as.character(summary(as.factor(LONG_MATRIX_ASSAYED_filtered$Label)))))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("LONG_MATRIX_ASSAYED_filtered\n")
+    cat(str(LONG_MATRIX_ASSAYED_filtered))
+    cat("\n")
+    cat(str(unique(LONG_MATRIX_ASSAYED_filtered$VAR)))
+    cat("\n")
+    cat(sprintf(as.character(names(summary(as.factor(LONG_MATRIX_ASSAYED_filtered$Label))))))
+    cat("\n")
+    cat(sprintf(as.character(summary(as.factor(LONG_MATRIX_ASSAYED_filtered$Label)))))
+    cat("\n")
+  }
   
   LONG_MATRIX<-rbind(LONG_MATRIX_CTRL,LONG_MATRIX_ASSAYED_filtered)
   
-  cat("----->LONG_MATRIX_1\n")
-  cat(str(LONG_MATRIX))
-  cat("\n")
-  cat(str(unique(LONG_MATRIX$VAR)))
-  cat("\n")
-  cat(sprintf(as.character(names(summary(as.factor(LONG_MATRIX$Label))))))
-  cat("\n")
-  cat(sprintf(as.character(summary(as.factor(LONG_MATRIX$Label)))))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("----->LONG_MATRIX_1\n")
+    cat(str(LONG_MATRIX))
+    cat("\n")
+    cat(str(unique(LONG_MATRIX$VAR)))
+    cat("\n")
+    cat(sprintf(as.character(names(summary(as.factor(LONG_MATRIX$Label))))))
+    cat("\n")
+    cat(sprintf(as.character(summary(as.factor(LONG_MATRIX$Label)))))
+    cat("\n")
+  }
   
   
   # ###################################################
@@ -882,10 +998,12 @@ regularize_matrixes = function(option_list)
   
   
   
-  
-  cat("----->LONG_MATRIX_PRE\n")
-  cat(str(LONG_MATRIX))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("----->LONG_MATRIX_PRE\n")
+    cat(str(LONG_MATRIX))
+    cat("\n")
+  }
  
   
   
@@ -896,12 +1014,16 @@ regularize_matrixes = function(option_list)
   
   LONG_MATRIX_subset<-unique(LONG_MATRIX[,indx.int])
   
-  cat("LONG_MATRIX_subset\n")
-  cat(str(LONG_MATRIX_subset))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("LONG_MATRIX_subset\n")
+    cat(str(LONG_MATRIX_subset))
+    cat("\n")
+  }
   
   
- 
+ # ###############################
+ #  quit(status = 1)
   
   #### deduplicate the factor 4
   
@@ -914,36 +1036,46 @@ regularize_matrixes = function(option_list)
                                                               by =key(LONG_MATRIX_subset.dt)],)
 
   
-  
-  cat("LONG_MATRIX_subset_deduplicated_1\n")
-  cat(str(LONG_MATRIX_subset_deduplicated))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("LONG_MATRIX_subset_deduplicated_1\n")
+    cat(str(LONG_MATRIX_subset_deduplicated))
+    cat("\n")
+  }
   
   LONG_MATRIX_subset_deduplicated$factor4<-"NA"
   
   indx<-grep("High_AT",LONG_MATRIX_subset_deduplicated$factor4_string)
   
-  cat("indx_AT\n")
-  cat(str(indx))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("indx_AT\n")
+    cat(str(indx))
+    cat("\n")
+  }
   
   
   LONG_MATRIX_subset_deduplicated$factor4[indx]<-"High_AT"
   
   indx<-grep("High_GC",LONG_MATRIX_subset_deduplicated$factor4_string)
   
-  
-  cat("indx_GC\n")
-  cat(str(indx))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("indx_GC\n")
+    cat(str(indx))
+    cat("\n")
+  }
   
   LONG_MATRIX_subset_deduplicated$factor4[indx]<-"High_GC"
   
   indx<-grep("Medium",LONG_MATRIX_subset_deduplicated$factor4_string)
   
-  cat("indx_Medium\n")
-  cat(str(indx))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("indx_Medium\n")
+    cat(str(indx))
+    cat("\n")
+  }
   
   
   LONG_MATRIX_subset_deduplicated$factor4[indx]<-"Medium"
@@ -954,22 +1086,26 @@ regularize_matrixes = function(option_list)
   LONG_MATRIX_subset_deduplicated$factor4<-factor(LONG_MATRIX_subset_deduplicated$factor4,
                                                   levels=c("Medium","High_GC","High_AT"),
                                                   ordered=T)
-  
-  cat("LONG_MATRIX_subset_deduplicated_Medium\n")
-  cat(str(LONG_MATRIX_subset_deduplicated))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("LONG_MATRIX_subset_deduplicated_Medium\n")
+    cat(str(LONG_MATRIX_subset_deduplicated))
+    cat("\n")
+  }
  
   
   REAL_TILE_DF<-LONG_MATRIX_subset_deduplicated
   
-  
-  cat("REAL_TILE_DF_0\n")
-  cat(str(REAL_TILE_DF))
-  cat("\n")
-  cat(sprintf(as.character(names(summary(REAL_TILE_DF$factor4)))))
-  cat("\n")
-  cat(sprintf(as.character(summary(REAL_TILE_DF$factor4))))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("REAL_TILE_DF_0\n")
+    cat(str(REAL_TILE_DF))
+    cat("\n")
+    cat(sprintf(as.character(names(summary(REAL_TILE_DF$factor4)))))
+    cat("\n")
+    cat(sprintf(as.character(summary(REAL_TILE_DF$factor4))))
+    cat("\n")
+  }
  
   
   
@@ -993,10 +1129,12 @@ regularize_matrixes = function(option_list)
   REAL_TILE_DF$pos<-as.integer(gsub("_.+$","",REAL_TILE_DF$pos))
   
   
-  
-  cat("REAL_TILE_DF_POST_MERGE\n")
-  cat(str(REAL_TILE_DF))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("REAL_TILE_DF_POST_MERGE\n")
+    cat(str(REAL_TILE_DF))
+    cat("\n")
+  }
   
   
  
@@ -1011,15 +1149,21 @@ regularize_matrixes = function(option_list)
   
   check<-REAL_TILE_DF[which(REAL_TILE_DF$pos%in%REVERT_POS & REAL_TILE_DF$chr%in%REVERT_chr),]
   
-  cat("check_POST_MERGE\n")
-  cat(str(check))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("check_POST_MERGE\n")
+    cat(str(check))
+    cat("\n")
+  }
   
   VARS_CTRL<-unique(check$VAR)
   
-  cat("VARS_CTRL_1\n")
-  cat(str(VARS_CTRL))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("VARS_CTRL_1\n")
+    cat(str(VARS_CTRL))
+    cat("\n")
+  }
   
   REAL_TILE_DF$Label[which(REAL_TILE_DF$VAR%in%VARS_CTRL)]<-"UNDETERMINED_CTRL"
   
@@ -1030,15 +1174,21 @@ regularize_matrixes = function(option_list)
   
   REAL_TILE_DF_NEG_CTRLS<-REAL_TILE_DF[which(REAL_TILE_DF$Label == 'Negative_Control_Genomic_Regions'),]
   
-  cat("REAL_TILE_DF_NEG_CTRLS_POST_MERGE\n")
-  cat(str(REAL_TILE_DF_NEG_CTRLS))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("REAL_TILE_DF_NEG_CTRLS_POST_MERGE\n")
+    cat(str(REAL_TILE_DF_NEG_CTRLS))
+    cat("\n")
+  }
   
   VARS_CTRL<-unique(REAL_TILE_DF_NEG_CTRLS$VAR)
   
-  cat("VARS_CTRL_2\n")
-  cat(str(VARS_CTRL))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("VARS_CTRL_2\n")
+    cat(str(VARS_CTRL))
+    cat("\n")
+  }
   
   
   
@@ -1059,9 +1209,12 @@ regularize_matrixes = function(option_list)
   
   check<-TABLE_MPRA_RESULTS[grep("\\|",TABLE_MPRA_RESULTS$carried_variants),]
   
-  cat("check_0\n")
-  cat(str(check))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("check_0\n")
+    cat(str(check))
+    cat("\n")
+  }
   
   
   
@@ -1102,17 +1255,21 @@ regularize_matrixes = function(option_list)
   check<-TABLE_MPRA_RESULTS[grep("\\|",TABLE_MPRA_RESULTS$carried_variants),]
   
   
-  
-  
-  cat("check_0\n")
-  cat(str(check))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("check_0\n")
+    cat(str(check))
+    cat("\n")
+  }
   
   check.carried_variants<-unique(check$carried_variants)
   
-  cat("check.carried_variants\n")
-  cat(str(check.carried_variants))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("check.carried_variants\n")
+    cat(str(check.carried_variants))
+    cat("\n")
+  }
   
  
   
@@ -1144,10 +1301,12 @@ regularize_matrixes = function(option_list)
   TABLE_MPRA_RESULTS<-TABLE_MPRA_RESULTS[order(TABLE_MPRA_RESULTS$master_sample,TABLE_MPRA_RESULTS$type,TABLE_MPRA_RESULTS$condition,TABLE_MPRA_RESULTS$KEY,TABLE_MPRA_RESULTS$TILE),]
   
   
-  
-  cat("TABLE_MPRA_RESULTS_1\n")
-  cat(str(TABLE_MPRA_RESULTS))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("TABLE_MPRA_RESULTS_1\n")
+    cat(str(TABLE_MPRA_RESULTS))
+    cat("\n")
+  }
   
   #TABLE_MPRA_RESULTS$batch<-paste("b",as.numeric(TABLE_MPRA_RESULTS$sample),sep='')
   TABLE_MPRA_RESULTS$batch<-paste("b",as.numeric(TABLE_MPRA_RESULTS$master_sample),sep='')
@@ -1166,9 +1325,12 @@ regularize_matrixes = function(option_list)
   Deconvolve_table<-unique(TABLE_MPRA_RESULTS[,c(which(colnames(TABLE_MPRA_RESULTS) == "batch"),
                                           which(colnames(TABLE_MPRA_RESULTS) == "master_sample"))])
   
-  cat("Deconvolve_table_2\n")
-  cat(str(Deconvolve_table))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("Deconvolve_table_2\n")
+    cat(str(Deconvolve_table))
+    cat("\n")
+  }
   
   levels_batch<-unique(as.character(TABLE_MPRA_RESULTS$batch))
   
@@ -1193,11 +1355,13 @@ regularize_matrixes = function(option_list)
                                                                     string_barcodes=paste(bc, collapse = "|")),
                                                                 by=key(TABLE_MPRA_RESULTS.dt)]
                                           ,stringsAsFactors=F)
+  if(CONDITION_DEBUG  == 1)
+  {
   
-  
-  cat("AGGREGATION_MPRA_RESULTS\n")
-  cat(str(AGGREGATION_MPRA_RESULTS))
-  cat("\n")
+    cat("AGGREGATION_MPRA_RESULTS\n")
+    cat(str(AGGREGATION_MPRA_RESULTS))
+    cat("\n")
+  }
   
     
   AGGREGATION_MPRA_RESULTS.dt<-data.table(AGGREGATION_MPRA_RESULTS,
@@ -1244,50 +1408,74 @@ regularize_matrixes = function(option_list)
   list_gDNA_DEF<-list()
   list_cDNA_DEF<-list()
   
+  
+  CONDITION_DEBUG<-0
+  
+  
+  # REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C' REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+  
   for(i in 1:length(KEYS_array))
   {
     KEYS_array_sel<-KEYS_array[i]
     
-    cat("------------------------------->")
+    cat("--------------------------------------------------------------------------------------------------------->")
+    cat(sprintf(as.character(i)))
+    cat("\t")
     cat(sprintf(as.character(KEYS_array_sel)))
     cat("\n")
     
     TABLE_MPRA_RESULTS_sel<-TABLE_MPRA_RESULTS[which(TABLE_MPRA_RESULTS$KEY == KEYS_array_sel),]
-    
-    # cat("TABLE_MPRA_RESULTS_sel\n")
-    # cat(str(TABLE_MPRA_RESULTS_sel))
-    # cat("\n")
+
+    if(CONDITION_DEBUG  == 1)
+    {
+      cat("TABLE_MPRA_RESULTS_sel\n")
+      cat(str(TABLE_MPRA_RESULTS_sel))
+      cat("\n")
+    }
+   
     
     
     
     TILES_array<-unique(TABLE_MPRA_RESULTS_sel$TILE)
     
-    
-    # cat("TILES_array\n")
-    # cat(str(TILES_array))
-    # cat("\n")
+    if(CONDITION_DEBUG  == 1)
+    {
+      cat("TILES_array\n")
+      cat(str(TILES_array))
+      cat("\n")
+       
+    }
+  
     
     for(l in 1:length(TILES_array))
     {
       TILES_array_sel<-TILES_array[l]
       
-      cat("------>")
-      cat(sprintf(as.character(TILES_array_sel)))
-      cat("\n")
+      if(CONDITION_DEBUG  == 1)
+      {
+        cat("----------------------------->")
+        cat(sprintf(as.character(TILES_array_sel)))
+        cat("\n")
+      }
       
       
       TABLE_MPRA_RESULTS_sel_TILE_sel<-TABLE_MPRA_RESULTS_sel[which(TABLE_MPRA_RESULTS_sel$TILE == TILES_array_sel),]
       
-      # cat("TABLE_MPRA_RESULTS_sel_TILE_sel\n")
-      # cat(str(TABLE_MPRA_RESULTS_sel_TILE_sel))
-      # cat("\n")
+      if(CONDITION_DEBUG  == 1)
+      {
+        cat("TABLE_MPRA_RESULTS_sel_TILE_sel\n")
+        cat(str(TABLE_MPRA_RESULTS_sel_TILE_sel))
+        cat("\n")
+      }
       
       carried_variants_array<-unique(TABLE_MPRA_RESULTS_sel_TILE_sel$carried_variants)
       
-      
-      # cat("carried_variants_array\n")
-      # cat(str(carried_variants_array))
-      # cat("\n")
+      if(CONDITION_DEBUG  == 1)
+      {
+        cat("carried_variants_array\n")
+        cat(str(carried_variants_array))
+        cat("\n")
+      }
       
       
       Tile<-"NA"
@@ -1321,65 +1509,93 @@ regularize_matrixes = function(option_list)
       {
         carried_variants_array_sel<-carried_variants_array[p]
         
-        # cat("--->")
-        # cat(sprintf(as.character(carried_variants_array_sel)))
-        # cat("\n")
+        if(CONDITION_DEBUG  == 1)
+        {
+          cat("--------------->")
+          cat(sprintf(as.character(carried_variants_array_sel)))
+          cat("\n")
+        }
+       
         
         TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel<-TABLE_MPRA_RESULTS_sel_TILE_sel[which(TABLE_MPRA_RESULTS_sel_TILE_sel$carried_variants == carried_variants_array_sel),]
         
-        # cat("TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel\n")
-        # cat(str(TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel))
-        # cat("\n")
+        if(CONDITION_DEBUG  == 1)
+        {
+          cat("TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel\n")
+          cat(str(TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel))
+          cat("\n")
+        }
         
        
         ### REAL_TILE_Plus_carried_variants<-definition
         
         REAL_TILE_Plus_carried_variants<-paste(paste(KEYS_array_sel,Tile, sep="__"),carried_variants_array_sel, sep=";")
         
+        if(CONDITION_DEBUG  == 1)
+        {
         
-        cat("--------------------------------------------------------------------------------------------------------->")
-        cat(sprintf(as.character(REAL_TILE_Plus_carried_variants)))
-        cat("\n")
+          cat("REAL_TILE_Plus_carried_variants")
+          cat(sprintf(as.character(REAL_TILE_Plus_carried_variants)))
+          cat("\n")
         
-        # cat("levels_batch\n")
-        # cat(str(levels_batch))
-        # cat("\n")
+        }
+        
+        
+        if(CONDITION_DEBUG  == 1)
+        {
+          cat("levels_batch\n")
+          cat(str(levels_batch))
+          cat("\n")
+        }
         
         list_gDNA_batch<-list()
         list_cDNA_batch<-list()
         
+        CONDITION_DEBUG  <- 0
+        
         for(n in 1: length(levels_batch))
         {
           levels_batch_sel<-levels_batch[n]
-          
-          
-          # cat(">")
-          # cat(sprintf(as.character(levels_batch_sel)))
-          # cat("\n")
-          
-          
           TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel_batch_sel<-TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel[which(TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel$batch == levels_batch_sel),]
           
-          # cat("TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel_batch_sel\n")
-          # cat(str(TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel_batch_sel))
-          # cat("\n")
+          
+          if(CONDITION_DEBUG  == 1)
+          {
+            cat("------>")
+            cat(sprintf(as.character(levels_batch_sel)))
+            cat("\t")
+            
+            cat(sprintf(as.character(unique(TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel_batch_sel$batch))))
+            cat("\t")
+            cat(sprintf(as.character(unique(TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel_batch_sel$Replicate))))
+            cat("\t")
+            cat(sprintf(as.character(unique(TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel_batch_sel$Cell_Type))))
+            cat("\n")
+          }
+            
+          if(CONDITION_DEBUG  == 1)
+          {  
+            cat("TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel_batch_sel\n")
+            cat(str(TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel_batch_sel))
+            cat("\n")
+            
+          }
           
           
-     
-          
-          # cat("condition_array\n")
-          # cat(str(condition_array))
-          # cat("\n")
-          
+         
+        
           #### PROBLEM NOT ALL TILES HAVE A REF (compound tiles of two variants) ## se line #948
           
           
           REF_definition<-TABLE_MPRA_RESULTS_sel_TILE_sel[which(TABLE_MPRA_RESULTS_sel_TILE_sel$condition == "REF" &
                                                                   TABLE_MPRA_RESULTS_sel_TILE_sel$batch == levels_batch_sel),]
           
-          # cat("REF_definition\n")
-          # cat(str(REF_definition))
-          # cat("\n")
+          if(CONDITION_DEBUG  == 1)
+          {
+            cat("REF_definition\n")
+            cat(str(REF_definition))
+            cat("\n")
+          }
           
           condition_array<-unique(TABLE_MPRA_RESULTS_sel_TILE_sel_carried_variants_sel_batch_sel$condition)
           
@@ -1395,21 +1611,9 @@ regularize_matrixes = function(option_list)
             
           }
           
-          if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
-          {
-            
-            # cat("REF_definition\n")
-            # cat(str(REF_definition))
-            # cat("\n")
-            
-            # setwd(out)
-            # 
-            # write.table(REF_definition, file="test.tsv",sep="\t",quote=F, row.names=F)
-            # 
-            # quit(status = 1)
-            
-          }
+         
           
+         
           
           ## DEFINE CT, sample, master sample
           
@@ -1427,11 +1631,12 @@ regularize_matrixes = function(option_list)
           {
             condition_array_sel<-condition_array[h]
             
-            
-            # cat("----->")
-            # cat(sprintf(as.character(condition_array_sel)))
-            # cat("\n")
-            
+            if(CONDITION_DEBUG  == 1)
+            {
+              cat("->")
+              cat(sprintf(as.character(condition_array_sel)))
+              cat("\n")
+            }
             
             
             if(condition_array_sel == "REF")
@@ -1445,22 +1650,15 @@ regularize_matrixes = function(option_list)
               
             }
             
-            if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+            if(CONDITION_DEBUG  == 1)
             {
-            
-              # cat("condition_sel\n")
-              # cat(str(condition_sel))
-              # cat("\n")
+              cat("condition_sel_DF\n")
+              cat(str(condition_sel))
+              cat("\n")
+              cat("type_levels\n")
+              cat(sprintf(as.character(unique(condition_sel$type))))
+              cat("\n")
             }
-            
-            # 
-            type_array<-levels(condition_sel$type)
-            
-            
-            # cat("type_array\n")
-            # cat(str(type_array))
-            # cat("\n")
-            # 
             
             if(dim(condition_sel)[1] == 0)
             {
@@ -1489,12 +1687,18 @@ regularize_matrixes = function(option_list)
                 quit(status = 1)
                 
               }
+            }# dim(condition_sel)[1] == 0
+            
+            
+            # 
+            type_array<-levels(condition_sel$type)
+            
+            if(CONDITION_DEBUG  == 1)
+            {
+              cat("type_array\n")
+              cat(str(type_array))
+              cat("\n")
             }
-        
-         
-            
-            
-              
               list_type<-list()
               
               for(k in 1:length(type_array))
@@ -1502,17 +1706,24 @@ regularize_matrixes = function(option_list)
                 
                 type_array_sel<-type_array[k]
                 
-                
+                if(CONDITION_DEBUG  == 1)
+                {
+                  cat("--->\n")
+                  cat(str(type_array_sel))
+                  cat("\n")
+                }
                 
                 
                 condition_type_sel<-condition_sel[which(condition_sel$type == type_array_sel),]
                 
-                if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+                if(CONDITION_DEBUG  == 1)
                 {
-                  # cat("condition_type_sel\n")
-                  # cat(str(condition_type_sel))
-                  # cat("\n")
+                  cat("condition_type_sel\n")
+                  cat(str(condition_type_sel))
+                  cat("\n")
                 }
+                
+                
                 
                 missing_barcodes<-NULL
                 
@@ -1521,9 +1732,12 @@ regularize_matrixes = function(option_list)
                   
                   missing_barcodes<-15-dim(condition_type_sel)[1]
                   
-                  # cat("missing_barcodes\n")
-                  # cat(str(missing_barcodes))
-                  # cat("\n")
+                  if(CONDITION_DEBUG  == 1)
+                  {
+                    cat("missing_barcodes\n")
+                    cat(str(missing_barcodes))
+                    cat("\n")
+                  }
                 }
                 else{
                   
@@ -1542,15 +1756,22 @@ regularize_matrixes = function(option_list)
                   cat("missing_barcodes\n")
                   cat(str(missing_barcodes))
                   cat("\n")
+                  
+                  
                 }
+                
+                CONDITION_DEBUG  <- 0
                 
                 if(missing_barcodes > 0)
                 {
                   missing_barcodes_array<-seq(1,missing_barcodes,by=1)
                   
-                  # cat("missing_barcodes_array\n")
-                  # cat(str(missing_barcodes_array))
-                  # cat("\n")
+                  if(CONDITION_DEBUG  == 1)
+                  {
+                    cat("missing_barcodes_array\n")
+                    cat(str(missing_barcodes_array))
+                    cat("\n")
+                  }
                   
                   temp<- data.frame(matrix(vector(), 0, 
                                            dim(condition_type_sel)[2],
@@ -1561,9 +1782,12 @@ regularize_matrixes = function(option_list)
                   
                   # colnames(temp)<-colnames(DEF_TABLE_DESIGN_DROPOUTS)
                   
-                  # cat("temp_PRE\n")
-                  # cat(str(temp))
-                  # cat("\n")
+                  if(CONDITION_DEBUG  == 1)
+                  {
+                    cat("temp_PRE\n")
+                    cat(str(temp))
+                    cat("\n")
+                  }
                   
                   
                   
@@ -1571,9 +1795,12 @@ regularize_matrixes = function(option_list)
                   {
                     iteration_sel<-missing_barcodes_array[missing_barcodes_array_iteration]
                     
-                    # cat("iteration_sel\n")
-                    # cat(str(iteration_sel))
-                    # cat("\n")
+                    if(CONDITION_DEBUG  == 1)
+                    {
+                      cat("iteration_sel\n")
+                      cat(str(iteration_sel))
+                      cat("\n")
+                    }
                     
                     DUMMY_token<-paste("DUMMY",iteration_sel,sep="_")
                     sample_DUMMY<-paste(master_sample_DUMMY,as.character(type_array_sel),sep="_")
@@ -1588,10 +1815,12 @@ regularize_matrixes = function(option_list)
                     
                     colnames(temp_df)<-colnames(temp)
                     
-                    
-                    # cat("temp_df\n")
-                    # cat(str(temp_df))
-                    # cat("\n")
+                    if(CONDITION_DEBUG  == 1)
+                    {
+                      cat("temp_df\n")
+                      cat(str(temp_df))
+                      cat("\n")
+                    }
                     
                     temp<-rbind(temp,temp_df)
                     
@@ -1601,25 +1830,33 @@ regularize_matrixes = function(option_list)
                     
                   }# missing_barcodes_array_iteration
                   
-                  
-                  # cat("temp_POST\n")
-                  # cat(str(temp))
-                  # cat("\n")
+                  if(CONDITION_DEBUG  == 1)
+                  {
+                    cat("temp_POST\n")
+                    cat(str(temp))
+                    cat("\n")
+                  }
                   
                   if(dim(condition_type_sel)[1] >0)
                   {
                     condition_type_sel<-rbind(condition_type_sel,temp)
                     
-                    # cat("condition_type_sel_POST\n")
-                    # cat(str(condition_type_sel))
-                    # cat("\n")
+                    if(CONDITION_DEBUG  == 1)
+                    {
+                      cat("condition_type_sel_POST\n")
+                      cat(str(condition_type_sel))
+                      cat("\n")
+                    }
                   }else{
                     
                     condition_type_sel<-temp
                     
-                    # cat("condition_type_sel_POST\n")
-                    # cat(str(condition_type_sel))
-                    # cat("\n")
+                    if(CONDITION_DEBUG  == 1)
+                    {
+                      cat("condition_type_sel_POST\n")
+                      cat(str(condition_type_sel))
+                      cat("\n")
+                    }
                     
                   }
                   
@@ -1627,14 +1864,17 @@ regularize_matrixes = function(option_list)
                   
                   condition_type_sel<-condition_type_sel
                 }# missing_barcodes > 0
+                
+                CONDITION_DEBUG  <- 0
                   
-                if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+                if(CONDITION_DEBUG  == 1)
                 {
-                  # cat("condition_type_sel_POST\n")
-                  # cat(str(condition_type_sel))
-                  # cat("\n")
+                  cat("condition_type_sel_POST\n")
+                  cat(str(condition_type_sel))
+                  cat("\n")
                 }
                   
+                # quit(status = 1)
                   
                   vector_bc_numbers<-0
                   
@@ -1660,65 +1900,74 @@ regularize_matrixes = function(option_list)
                   
                   condition_type_sel_subset$batch_bc_name<-paste(condition_type_sel_subset$batch,condition_type_sel_subset$bc_name,sep="_")
                   
-                  # cat("condition_type_sel_subset_0\n")
-                  # cat(str(condition_type_sel_subset))
-                  # cat("\n")
+                  if(CONDITION_DEBUG  == 1)
+                  {
+                    cat("condition_type_sel_subset_0\n")
+                    cat(str(condition_type_sel_subset))
+                    cat("\n")
+                  }
                   
                   condition_type_sel_subset<-condition_type_sel_subset[,-c(which(colnames(condition_type_sel_subset) == "batch"),
                                                                            which(colnames(condition_type_sel_subset) == "bc_name"))]
-                  
-                  # cat("condition_type_sel_subset_1\n")
-                  # cat(str(condition_type_sel_subset))
-                  # cat("\n")
+                  if(CONDITION_DEBUG  == 1)
+                  {
+                    cat("condition_type_sel_subset_1\n")
+                    cat(str(condition_type_sel_subset))
+                    cat("\n")
+                  }
                   
                   condition_type_sel_subset_wide<-as.data.frame(pivot_wider(condition_type_sel_subset,
                                                              id_cols=REAL_TILE_Plus_carried_variants,
                                                              names_from=batch_bc_name,
                                                              values_from=counts), stringsAsFactors=F)
                   
-                  if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+                  if(CONDITION_DEBUG  == 1)
                   {
                   
-                    # cat("condition_type_sel_subset_wide\n")
-                    # str(condition_type_sel_subset_wide)
-                    # cat("\n")
-                    # 
-                    # cat("type_array_sel\n")
-                    # str(as.character(type_array_sel))
-                    # cat("\n")
+                    cat("condition_type_sel_subset_wide\n")
+                    str(condition_type_sel_subset_wide)
+                    cat("\n")
+
+                    cat("type_array_sel\n")
+                    str(as.character(type_array_sel))
+                    cat("\n")
                   }
                   
                   
                   list_type[[as.character(type_array_sel)]]<-condition_type_sel_subset_wide
               }# k type_array
               
+              
+              
+              
               names_RESULTS_1_array<-names(list_type)
               
-              if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+              if(CONDITION_DEBUG  == 1)
               {
-                
-                # cat("names_RESULTS_1_array\n")
-                # cat(str(names_RESULTS_1_array))
-                # cat("\n")
+                cat("names_RESULTS_1_array\n")
+                cat(str(names_RESULTS_1_array))
+                cat("\n")
               }
               
               for(iteration_names_RESULTS_1_array in 1:length(names_RESULTS_1_array))
               {
                 names_RESULTS_1_array_sel<-names_RESULTS_1_array[iteration_names_RESULTS_1_array]
                 
-                # cat(">")
-                # cat(sprintf(as.character(names_RESULTS_1_array_sel)))
-                # cat("\n")
+                if(CONDITION_DEBUG  == 1)
+                {
+                  cat(">")
+                  cat(sprintf(as.character(names_RESULTS_1_array_sel)))
+                  cat("\n")
+                }
                 
                 RESULTS_1 = list_type[[names_RESULTS_1_array_sel]]
                   # unique(as.data.frame(data.table::rbindlist(, fill = T)))
                 
-                if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+                if(CONDITION_DEBUG  == 1)
                 {
-              
-                  # cat("RESULTS_1\n")
-                  # cat(str(RESULTS_1))
-                  # cat("\n")
+                  cat("RESULTS_1\n")
+                  cat(str(RESULTS_1))
+                  cat("\n")
                 }
                 
                
@@ -1739,26 +1988,27 @@ regularize_matrixes = function(option_list)
               }# names_RESULTS_1_array
           }# h condition array
           
+          
+         
+          
           ## gDNA
           
           gDNA_REF<-list_gDNA[["REF"]]
           
-          if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+          if(CONDITION_DEBUG  == 1)
           {
-            
-            # cat("gDNA_REF\n")
-            # cat(str(gDNA_REF))
-            # cat("\n")
+            cat("gDNA_REF\n")
+            cat(str(gDNA_REF))
+            cat("\n")
           }
           
           gDNA_ALT<-list_gDNA[["ALT"]]
           
-          if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+          if(CONDITION_DEBUG  == 1)
           {
-            
-            # cat("gDNA_ALT\n")
-            # cat(str(gDNA_ALT))
-            # cat("\n")
+            cat("gDNA_ALT\n")
+            cat(str(gDNA_ALT))
+            cat("\n")
           }
           
          
@@ -1768,13 +2018,14 @@ regularize_matrixes = function(option_list)
                           by="REAL_TILE_Plus_carried_variants",
                           all=T)
           
-          if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+          if(CONDITION_DEBUG  == 1)
           {
-          
-            # cat("gDNA_DEF\n")
-            # cat(str(gDNA_DEF))
-            # cat("\n")
+            cat("gDNA_DEF\n")
+            cat(str(gDNA_DEF))
+            cat("\n")
           }
+          
+         
           
           if(dim(gDNA_DEF)[2] != 31)
           {
@@ -1787,7 +2038,7 @@ regularize_matrixes = function(option_list)
             
             quit(status = 1)
             
-          }
+          }#dim(gDNA_DEF)[2] != 31
           
           list_gDNA_batch[[as.character(levels_batch_sel)]]<-gDNA_DEF
           
@@ -1795,20 +2046,20 @@ regularize_matrixes = function(option_list)
           
           cDNA_REF<-list_cDNA[["REF"]]
           
-          if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+          if(CONDITION_DEBUG  == 1)
           {
-            # cat("cDNA_REF\n")
-            # cat(str(cDNA_REF))
-            # cat("\n")
+            cat("cDNA_REF\n")
+            cat(str(cDNA_REF))
+            cat("\n")
           }
           
           cDNA_ALT<-list_cDNA[["ALT"]]
           
-          if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+          if(CONDITION_DEBUG  == 1)
           {
-            # cat("cDNA_ALT\n")
-            # cat(str(cDNA_ALT))
-            # cat("\n")
+            cat("cDNA_ALT\n")
+            cat(str(cDNA_ALT))
+            cat("\n")
           }
           
           cDNA_DEF<-merge(cDNA_REF,
@@ -1816,12 +2067,14 @@ regularize_matrixes = function(option_list)
                           by="REAL_TILE_Plus_carried_variants",
                           all=T)
           
-          if(REAL_TILE_Plus_carried_variants == 'Element_115__TILE_1;9_5079224_C_G|9_5079248_T_C')
+          if(CONDITION_DEBUG  == 1)
           {
-            # cat("cDNA_DEF\n")
-            # cat(str(cDNA_DEF))
-            # cat("\n")
+            cat("cDNA_DEF\n")
+            cat(str(cDNA_DEF))
+            cat("\n")
           }
+          
+         
           
           if(dim(cDNA_DEF)[2] != 31)
           {
@@ -1834,19 +2087,25 @@ regularize_matrixes = function(option_list)
             
             quit(status = 1)
             
-          }
+          }# dim(cDNA_DEF)[2] != 31
           
           list_cDNA_batch[[as.character(levels_batch_sel)]]<-cDNA_DEF
           
         }#n levels_batches
         
+        CONDITION_DEBUG  <- 0
+        
+        
         ### gDNA
         
         names_gDNA_batch_array<-names(list_gDNA_batch)
         
-        # cat("names_gDNA_batch_array\n")
-        # cat(str(names_gDNA_batch_array))
-        # cat("\n")
+        if(CONDITION_DEBUG  == 1)
+        {
+          cat("names_gDNA_batch_array\n")
+          cat(str(names_gDNA_batch_array))
+          cat("\n")
+        }
         
         
         attractor_gDNA<-NULL
@@ -1856,15 +2115,21 @@ regularize_matrixes = function(option_list)
           
           names_gDNA_batch_array_sel<-names_gDNA_batch_array[iteration_names_gDNA_batch_array]
           
-          # cat(sprintf(as.character(names_gDNA_batch_array_sel)))
-          # cat("\n")
+          if(CONDITION_DEBUG  == 1)
+          {
+            cat(sprintf(as.character(names_gDNA_batch_array_sel)))
+            cat("\n")
+          }
           
           
           gDNA_object_after_batch = list_gDNA_batch[[names_gDNA_batch_array_sel]]
           
-          # cat("gDNA_object_after_batch\n")
-          # cat(str(gDNA_object_after_batch))
-          # cat("\n")
+          if(CONDITION_DEBUG  == 1)
+          {
+            cat("gDNA_object_after_batch\n")
+            cat(str(gDNA_object_after_batch))
+            cat("\n")
+          }
           
           
           
@@ -1885,14 +2150,17 @@ regularize_matrixes = function(option_list)
           }
           
           
-        }
+        }#iteration_names_gDNA_batch_array in 1:length(names_gDNA_batch_array)
         
         attractor_gDNA.matrix<-as.matrix(attractor_gDNA[,-1])
         row.names(attractor_gDNA.matrix)<-attractor_gDNA$REAL_TILE_Plus_carried_variants
         
-        # cat("attractor_gDNA.matrix\n")
-        # cat(str(attractor_gDNA.matrix))
-        # cat("\n")
+        if(CONDITION_DEBUG  == 1)
+        {
+          cat("attractor_gDNA.matrix\n")
+          cat(str(attractor_gDNA.matrix))
+          cat("\n")
+        }
         
         
         if(dim(attractor_gDNA.matrix)[2] != 1050)
@@ -1918,9 +2186,12 @@ regularize_matrixes = function(option_list)
         
         names_cDNA_batch_array<-names(list_cDNA_batch)
         
-        # cat("names_cDNA_batch_array\n")
-        # cat(str(names_cDNA_batch_array))
-        # cat("\n")
+        if(CONDITION_DEBUG  == 1)
+        {
+          cat("names_cDNA_batch_array\n")
+          cat(str(names_cDNA_batch_array))
+          cat("\n")
+        }
         
         
         attractor_cDNA<-NULL
@@ -1930,16 +2201,21 @@ regularize_matrixes = function(option_list)
           
           names_cDNA_batch_array_sel<-names_cDNA_batch_array[iteration_names_cDNA_batch_array]
           
-          # cat(sprintf(as.character(names_cDNA_batch_array_sel)))
-          # cat("\n")
+          if(CONDITION_DEBUG  == 1)
+          {
+            cat(sprintf(as.character(names_cDNA_batch_array_sel)))
+            cat("\n")
+          }
           
           
           cDNA_object_after_batch = list_cDNA_batch[[names_cDNA_batch_array_sel]]
           
-          # cat("cDNA_object_after_batch\n")
-          # cat(str(cDNA_object_after_batch))
-          # cat("\n")
-          
+          if(CONDITION_DEBUG  == 1)
+          {
+            cat("cDNA_object_after_batch\n")
+            cat(str(cDNA_object_after_batch))
+            cat("\n")
+          }
           
           
           
@@ -1964,9 +2240,12 @@ regularize_matrixes = function(option_list)
         attractor_cDNA.matrix<-as.matrix(attractor_cDNA[,-1])
         row.names(attractor_cDNA.matrix)<-attractor_cDNA$REAL_TILE_Plus_carried_variants
         
-        # cat("attractor_cDNA.matrix\n")
-        # cat(str(attractor_cDNA.matrix))
-        # cat("\n")
+        if(CONDITION_DEBUG  == 1)
+        {
+          cat("attractor_cDNA.matrix\n")
+          cat(str(attractor_cDNA.matrix))
+          cat("\n")
+        }
         
         
         if(dim(attractor_cDNA.matrix)[2] != 1050)
@@ -1982,20 +2261,26 @@ regularize_matrixes = function(option_list)
           
         }
         
+        # ###################################################
+        # quit(status = 1)
         
         list_cDNA_DEF[[REAL_TILE_Plus_carried_variants]]<-attractor_cDNA.matrix
       }#p carried variants
     }#l TILE
   }#i KEY
   
+  CONDITION_DEBUG  <- 1
   
   ### gDNA
   
   names_gDNA_DEF_array<-names(list_gDNA_DEF)
   
-  cat("names_gDNA_DEF_array\n")
-  cat(str(names_gDNA_DEF_array))
-  cat("\n")
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("names_gDNA_DEF_array\n")
+    cat(str(names_gDNA_DEF_array))
+    cat("\n")
+  }
   
   
   appender_gDNA<-NULL
@@ -2034,9 +2319,12 @@ regularize_matrixes = function(option_list)
     
   }
   
-  cat("appender_gDNA\n")
-  cat(str(appender_gDNA))
-  cat("\n") 
+  if(CONDITION_DEBUG  == 1)
+  {
+    cat("appender_gDNA\n")
+    cat(str(appender_gDNA))
+    cat("\n") 
+  }
   
   
   
@@ -2333,17 +2621,6 @@ regularize_matrixes = function(option_list)
   cat("\n")
   
   
-  
-  
-  
-              
-  
-  
-  
- 
- 
-  
- 
   #### SAVE ----
   
   setwd(out)

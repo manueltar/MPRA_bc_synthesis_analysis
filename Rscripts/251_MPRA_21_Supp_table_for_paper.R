@@ -739,7 +739,7 @@ main = function() {
   opt <<- parse_args(parser)
   
   
-  # data_wrangling(opt)
+  data_wrangling(opt)
   Add_Rsid_and_cumulative_classification(opt)
  
   
